@@ -1,0 +1,24 @@
+{
+  "name": "singularity-lessons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -o",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talgat-ruby/singularity-lessons.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talgat-ruby/singularity-lessons/issues"
+  },
+  "homepage": "https://github.com/talgat-ruby/singularity-lessons#readme",
+  "devDependencies": {
+    "http-server": "^14.1.0",
+    "prettier": "^2.6.2"
+  }
+}
