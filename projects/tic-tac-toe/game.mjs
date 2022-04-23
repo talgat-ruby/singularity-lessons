@@ -9,7 +9,7 @@ class Game {
 	}
 
 	async start() {
-		for (let i = 0; i < 1; i++) {
+		for (let i = 0; i < NUM_ROUNDS; i++) {
 			const [player1, player2] = [
 				new this.Member1(
 					Math.floor(i / 2) % 2 === 0 ? PIECES.X : PIECES.O
