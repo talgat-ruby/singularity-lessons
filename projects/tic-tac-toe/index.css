@@ -205,7 +205,7 @@ input:checked + span {
 .display {
   display: block;
 }
-/*:checked ~ label:nth-of-type(odd),
+:checked ~ label:nth-of-type(odd),
 :checked ~ :checked ~ :checked ~ label:nth-of-type(odd),
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ label:nth-of-type(odd),
 :checked
@@ -266,7 +266,7 @@ input:checked + span {
   ~ :checked
   ~ label:nth-of-type(odd) {
   transform: translate3d(0, 0, -1px);
-}*/
+}
 /*:checked
   ~ :checked
   ~ :checked
