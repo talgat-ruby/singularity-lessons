@@ -8,7 +8,7 @@ class Game {
 		this.Member2 = Member2;
 	}
 
-	async start() {
+	start() {
 		for (let i = 0; i < NUM_ROUNDS; i++) {
 			const [player1, player2] = [
 				new this.Member1(
@@ -24,7 +24,7 @@ class Game {
 					? new Round(player1, player2)
 					: new Round(player2, player1);
 
-			await round.start();
+			round.start();
 			this.rounds.push(round);
 		}
 	}
