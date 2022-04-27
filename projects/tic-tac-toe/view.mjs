@@ -23,33 +23,52 @@ class View {
 
 		this.x = [x0, x1, x2, x3, x4, x5, x6, x7, x8];
 		this.o = [o0, o1, o2, o3, o4, o5, o6, o7, o8];
+
+		this.resultX = document.getElementById("result-x");
+		this.resultO = document.getElementById("result-o");
+		this.resultDraw = document.getElementById("result-draw");
 	}
 
-	#listenLabelAnimationEnd(labelEl) {
-		// if (labelEl) {
-		// 	return new Promise((resolve) => {
-		// 		labelEl.addEventListener("animationend", resolve, {
-		// 			once: true,
-		// 		});
-		// 	});
-		// }
+	#asyncLabelListener(checkbox) {
+		const label = checkbox.labels[0];
+		return new Promise((resolve) => {
+			label.addEventListener("animationend", resolve, {
+				once: true,
+			});
+		});
+	}
+
+	renderBoardResult(winnerPiece) {
+		switch (winnerPiece) {
+			case PIECES.X:
+				this.resultX.style.display = "block";
+				return;
+			case PIECES.O:
+				this.resultO.style.display = "block";
+				return;
+			default:
+				this.resultDraw.style.display = "block";
+		}
 	}
 
 	renderPiece(ind, piece) {
-		let el;
-		if (piece === PIECES.X) {
-			el = this.x[ind];
-		} else if (piece === PIECES.O) {
-			el = this.o[ind];
-		} else {
-			throw new Error("Piece does not exit, check your code!");
+		let checkbox;
+		switch (piece) {
+			case PIECES.X:
+				checkbox = this.x[ind];
+				break;
+			case PIECES.O:
+				checkbox = this.o[ind];
+				break;
+			default:
+				throw new Error("Piece does not exit, check your code!");
 		}
 
-		// const p = this.#listenLabelAnimationEnd(el.labels[0]);
+		const listener = this.#asyncLabelListener(checkbox);
 
-		el.checked = true;
+		checkbox.checked = true;
 
-		// return p;
+		return listener;
 	}
 }
 
