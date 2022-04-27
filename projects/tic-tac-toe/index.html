@@ -12,7 +12,10 @@
 		<div class="game">
 			<form>
 				<div class="board">
-					<svg class="board__line" style="--x: 1; --y: 0">
+					<svg
+						class="board__line board__line--0"
+						style="--x: 1; --y: 0"
+					>
 						<path
 							d="M 5 5 L 295 5"
 							fill="none"
@@ -22,7 +25,10 @@
 							stroke-dashoffset="300"
 						></path>
 					</svg>
-					<svg class="board__line" style="--x: 2; --y: 0">
+					<svg
+						class="board__line board__line--1"
+						style="--x: 2; --y: 0"
+					>
 						<path
 							d="M 5 5 L 295 5"
 							fill="none"
@@ -32,7 +38,10 @@
 							stroke-dashoffset="300"
 						></path>
 					</svg>
-					<svg class="board__line" style="--x: 0; --y: 1">
+					<svg
+						class="board__line board__line--2"
+						style="--x: 0; --y: 1"
+					>
 						<path
 							d="M 5 5 L 295 5"
 							fill="none"
@@ -42,7 +51,11 @@
 							stroke-dashoffset="300"
 						></path>
 					</svg>
-					<svg class="board__line" style="--x: 0; --y: 2">
+					<svg
+						id="last-line"
+						class="board__line board__line--3"
+						style="--x: 0; --y: 2"
+					>
 						<path
 							d="M 5 5 L 295 5"
 							fill="none"
@@ -56,7 +69,8 @@
 						type="checkbox"
 						id="x--0"
 						style="--col: 0; --row: 0"
-					/><span style="--col: 0; --row: 0">
+					/>
+					<label for="x--0" style="--col: 0; --row: 0">
 						<svg class="x">
 							<path
 								class="cross"
@@ -75,13 +89,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--0"
 						style="--col: 0; --row: 0"
-					/><span style="--col: 0; --row: 0">
+					/>
+					<label for="o--0" style="--col: 0; --row: 0">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -93,13 +109,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--1"
 						style="--col: 1; --row: 0"
-					/><span style="--col: 1; --row: 0">
+					/>
+					<label for="x--1" style="--col: 1; --row: 0">
 						<svg class="x">
 							<path
 								class="cross"
@@ -118,13 +136,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--1"
 						style="--col: 1; --row: 0"
-					/><span style="--col: 1; --row: 0">
+					/>
+					<label for="o--1" style="--col: 1; --row: 0">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -136,13 +156,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--2"
 						style="--col: 2; --row: 0"
-					/><span style="--col: 2; --row: 0">
+					/>
+					<label for="x--2" style="--col: 2; --row: 0">
 						<svg class="x">
 							<path
 								class="cross"
@@ -161,13 +183,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--2"
 						style="--col: 2; --row: 0"
-					/><span style="--col: 2; --row: 0">
+					/>
+					<label for="o--2" style="--col: 2; --row: 0">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -179,13 +203,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--3"
 						style="--col: 0; --row: 1"
-					/><span style="--col: 0; --row: 1">
+					/>
+					<label for="x--3" style="--col: 0; --row: 1">
 						<svg class="x">
 							<path
 								class="cross"
@@ -204,13 +230,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--3"
 						style="--col: 0; --row: 1"
-					/><span style="--col: 0; --row: 1">
+					/>
+					<label for="o--3" style="--col: 0; --row: 1">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -222,13 +250,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--4"
 						style="--col: 1; --row: 1"
-					/><span style="--col: 1; --row: 1">
+					/>
+					<label for="x--4" style="--col: 1; --row: 1">
 						<svg class="x">
 							<path
 								class="cross"
@@ -247,13 +277,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--4"
 						style="--col: 1; --row: 1"
-					/><span style="--col: 1; --row: 1">
+					/>
+					<label for="o--4" style="--col: 1; --row: 1">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -265,13 +297,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--5"
 						style="--col: 2; --row: 1"
-					/><span style="--col: 2; --row: 1">
+					/>
+					<label for="x--5" style="--col: 2; --row: 1">
 						<svg class="x">
 							<path
 								class="cross"
@@ -290,13 +324,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--5"
 						style="--col: 2; --row: 1"
-					/><span style="--col: 2; --row: 1">
+					/>
+					<label for="o--5" style="--col: 2; --row: 1">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -308,13 +344,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--6"
 						style="--col: 0; --row: 2"
-					/><span style="--col: 0; --row: 2">
+					/>
+					<label for="x--6" style="--col: 0; --row: 2">
 						<svg class="x">
 							<path
 								class="cross"
@@ -333,13 +371,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--6"
 						style="--col: 0; --row: 2"
-					/><span style="--col: 0; --row: 2">
+					/>
+					<label for="o--6" style="--col: 0; --row: 2">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -351,13 +391,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--7"
 						style="--col: 1; --row: 2"
-					/><span style="--col: 1; --row: 2">
+					/>
+					<label for="x--7" style="--col: 1; --row: 2">
 						<svg class="x">
 							<path
 								class="cross"
@@ -376,13 +418,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--7"
 						style="--col: 1; --row: 2"
-					/><span style="--col: 1; --row: 2">
+					/>
+					<label for="o--7" style="--col: 1; --row: 2">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -394,13 +438,15 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
+							></circle>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="x--8"
 						style="--col: 2; --row: 2"
-					/><span style="--col: 2; --row: 2">
+					/>
+					<label for="x--8" style="--col: 2; --row: 2">
 						<svg class="x">
 							<path
 								class="cross"
@@ -419,13 +465,15 @@
 								stroke-linecap="round"
 								stroke-dasharray="100"
 								stroke-dashoffset="100"
-							></path></svg
-					></span>
+							></path>
+						</svg>
+					</label>
 					<input
 						type="checkbox"
 						id="o--8"
 						style="--col: 2; --row: 2"
-					/><span style="--col: 2; --row: 2">
+					/>
+					<label for="o--8" style="--col: 2; --row: 2">
 						<svg class="o">
 							<circle
 								class="naught"
@@ -437,26 +485,9 @@
 								stroke-dasharray="200"
 								stroke-dashoffset="200"
 								stroke-linecap="round"
-							></circle></svg
-					></span>
-					<label for="x--0" style="--col: 0; --row: 0"></label>
-					<label for="o--0" style="--col: 0; --row: 0"></label>
-					<label for="x--1" style="--col: 1; --row: 0"></label>
-					<label for="o--1" style="--col: 1; --row: 0"></label>
-					<label for="x--2" style="--col: 2; --row: 0"></label>
-					<label for="o--2" style="--col: 2; --row: 0"></label>
-					<label for="x--3" style="--col: 0; --row: 1"></label>
-					<label for="o--3" style="--col: 0; --row: 1"></label>
-					<label for="x--4" style="--col: 1; --row: 1"></label>
-					<label for="o--4" style="--col: 1; --row: 1"></label>
-					<label for="x--5" style="--col: 2; --row: 1"></label>
-					<label for="o--5" style="--col: 2; --row: 1"></label>
-					<label for="x--6" style="--col: 0; --row: 2"></label>
-					<label for="o--6" style="--col: 0; --row: 2"></label>
-					<label for="x--7" style="--col: 1; --row: 2"></label>
-					<label for="o--7" style="--col: 1; --row: 2"></label>
-					<label for="x--8" style="--col: 2; --row: 2"></label>
-					<label for="o--8" style="--col: 2; --row: 2"></label>
+							></circle>
+						</svg>
+					</label>
 					<div class="board__result board__result--x">
 						<dl class="result__content">
 							<dt class="result__title">Winner!</dt>

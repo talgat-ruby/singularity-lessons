@@ -70,11 +70,11 @@ button:active {
   transform: translateY(5px);
   filter: drop-shadow(0 0 0 transparent);
 }
-span {
+label svg {
   display: none;
   transform: translate3d(0, 0, 3px);
 }
-input:checked + span {
+input:checked + label svg {
   display: block;
 }
 .o {
@@ -102,25 +102,25 @@ input:checked + span {
 .board__line path {
   stroke: #fafafa;
 }
-.board__line:nth-of-type(1),
-.board__line:nth-of-type(2) {
+.board__line--0,
+.board__line--1 {
   transform: rotate(90deg) translate(-5px, 0);
   transform-origin: left center;
 }
-.board__line:nth-of-type(3),
-.board__line:nth-of-type(4) {
+.board__line--2,
+.board__line--3 {
   transform: translate(0, -50%);
 }
-.board__line:nth-of-type(1) path {
+.board__line--0 path {
   animation-delay: 0.25s;
 }
-.board__line:nth-of-type(2) path {
+.board__line--1 path {
   animation-delay: 0.5s;
 }
-.board__line:nth-of-type(3) path {
+.board__line--2 path {
   animation-delay: 0.75s;
 }
-.board__line:nth-of-type(4) path {
+.board__line--3 path {
   animation-delay: 1s;
 }
 .board__result {
@@ -205,7 +205,7 @@ input:checked + span {
 .display {
   display: block;
 }
-:checked ~ label:nth-of-type(odd),
+/*:checked ~ label:nth-of-type(odd),
 :checked ~ :checked ~ :checked ~ label:nth-of-type(odd),
 :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ label:nth-of-type(odd),
 :checked
@@ -266,7 +266,7 @@ input:checked + span {
   ~ :checked
   ~ label:nth-of-type(odd) {
   transform: translate3d(0, 0, -1px);
-}
+}*/
 /*:checked
   ~ :checked
   ~ :checked
