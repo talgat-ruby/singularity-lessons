@@ -1,11 +1,14 @@
 // Callbacks
-
-function loadScript(src) {
-	// creates a <script> tag and append it to the page
-	// this causes the script with given src to start loading and run when complete
-	let script = document.createElement("script");
-	script.src = src;
-	document.head.append(script);
+function main() {
+	const btn = document.getElementById("btn");
+	btn.addEventListener("click", clickButton);
 }
 
-loadScript("/my/script.js"); // the script has "function sampleFn() {…}"
+function clickButton() {
+	console.log("%c btn clicked -> ", "background: #222; color: royalblue");
+}
+
+const arr = [1, 2, 3];
+
+const newArr = arr.map((a) => a * 2);
+console.log(newArr);
