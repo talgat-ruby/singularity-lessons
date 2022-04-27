@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server -o",
+    "projects:tic-tac-toe": "http-server -o ./projects/tic-tac-toe",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
