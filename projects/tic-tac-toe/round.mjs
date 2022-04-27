@@ -1,7 +1,10 @@
 import { PIECES } from "./constants.mjs";
+import View from "./view.mjs";
 
 const ROW = 3;
 const COL = 3;
+
+const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 class Round {
 	constructor(player1, player2) {
@@ -9,48 +12,22 @@ class Round {
 		this.player2 = player2;
 		this.currentPlayer = this.player1;
 		this.winner;
-		this.board = null;
+		this.board = new Array(COL * ROW).fill(0);
 
-		this.counter = 0;
+		this.view = new View();
 	}
 
-	#init() {
-		const board = new Array(COL * ROW).fill(0);
-		this.board = new Proxy(board, {
-			set: (target, prop, value) => {
-				target[prop] = value;
-				this.#judge(Number(prop), value);
-				return true;
-			},
-		});
-	}
-
-	#togglePlayer() {
-		this.currentPlayer =
-			this.currentPlayer === this.player1 ? this.player2 : this.player1;
-	}
-
-	async #makeMove() {
-		await this.currentPlayer.move(this.board);
-		console.log(
-			"%c this.board -> ",
-			"background: #222; color: royalblue",
-			JSON.stringify(this.board)
-		);
-		console.log(
-			"%c this.winner -> ",
-			"background: #222; color: royalblue",
-			this.winner
-		);
-
-		if (this.counter < 100 && typeof this.winner === "undefined") {
-			this.counter++;
-			this.#togglePlayer();
-			this.#makeMove();
+	#judge(ind, piece) {
+		// TODO show player wrong move
+		if (this.board[ind] !== PIECES.EMPTY) {
+			this.winner =
+				this.currentPlayer === this.player1
+					? this.player2
+					: this.player1;
+			return;
 		}
-	}
+		this.board[ind] = piece;
 
-	async #judge(ind, piece) {
 		const firstInd = ind % COL;
 		const win =
 			// row
@@ -86,8 +63,38 @@ class Round {
 		return counter === total;
 	}
 
+	async #pieceHandler(ind, piece) {
+		this.#judge(ind, piece);
+		await this.view.renderPiece(ind, piece);
+		console.log(
+			"%c this.currentPlayer, ind -> ",
+			"background: #222; color: royalblue",
+			this.currentPlayer,
+			ind
+		);
+		// await wait(1000);
+	}
+
+	async #makeMove() {
+		try {
+			const ind = this.currentPlayer.move([...this.board]);
+			await this.#pieceHandler(ind, this.currentPlayer.piece);
+			this.#togglePlayer();
+
+			if (typeof this.winner === "undefined") {
+				await this.#makeMove();
+			}
+		} catch (err) {
+			throw err;
+		}
+	}
+
+	#togglePlayer() {
+		this.currentPlayer =
+			this.currentPlayer === this.player1 ? this.player2 : this.player1;
+	}
+
 	async start() {
-		this.#init();
 		await this.#makeMove();
 	}
 }
