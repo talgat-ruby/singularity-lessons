@@ -1,6 +1,20 @@
 const wait = (delay) => new Promise((res) => setTimeout(res, delay));
 
-async function promisAll(fns) {}
+async function promisAll(fns) {
+	const result = [];
+	const ps = [];
+	for (const fn of fns) {
+		const p = fn();
+		ps.push(p);
+	}
+
+	for (const p of ps) {
+		const res = await p;
+		result.push(res);
+	}
+
+	return result;
+}
 
 async function fn1() {
 	await wait(1000);
