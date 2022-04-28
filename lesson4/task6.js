@@ -12,5 +12,7 @@ const greeting = (name) => `Hello ${name}!`;
 const sendName = (name) => name;
 const sayHello = pipeFunctions(ask, greeting, sendName);
 
-console.log(sayHello("John")); // 15
-console.log(sayHello("Derik")); // 37
+console.log(sayHello("John"));
+// ("Hello John! How are you?");
+console.log(sayHello("Derik"));
+// ("Hello Derik! How are you?");
