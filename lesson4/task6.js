@@ -1,8 +1,8 @@
 function pipeFunctions() {}
 
-const add5 = (x) => x + 5;
 const multiply = (x, y) => x * y;
-const multiplyAndAdd5 = pipeFunctions(multiply, add5);
+const add5 = (x) => x + 5;
+const multiplyAndAdd5 = pipeFunctions(add5, multiply);
 
 console.log(multiplyAndAdd5(5, 2)); // 15
 console.log(multiplyAndAdd5(16, 2)); // 37
