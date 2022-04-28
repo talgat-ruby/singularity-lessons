@@ -1,4 +1,4 @@
-function promisAll(fns) {}
+async function promisAll(fns) {}
 
 function fn1() {
 	return Promise.resolve(1);
