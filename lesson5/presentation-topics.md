@@ -27,3 +27,6 @@
 ### Coding helpers (lint, modifier)
 
 -   ES lint
+-   Prettier
+
+Problems -> Solutions (Min 3 / Max 5) -> Pros/Cons = 5 minutes
