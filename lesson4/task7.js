@@ -1,19 +1,19 @@
 const wait = (delay) => new Promise((res) => setTimeout(res, delay));
 
-async function promisAll(fns) {
+async function promisAll(fns, cb) {
 	const result = [];
 	const ps = [];
+
 	for (const fn of fns) {
-		const p = fn();
-		ps.push(p);
+		fn().then((res) => {
+			result.push(res);
+			if (result.length === fns.length) {
+				cb(result);
+			}
+		});
 	}
 
-	for (const p of ps) {
-		const res = await p;
-		result.push(res);
-	}
-
-	return result;
+	// return result;
 }
 
 async function fn1() {
@@ -34,9 +34,11 @@ async function fnRej() {
 }
 
 async function main() {
-	console.log(await promisAll([fn1, fn2, fn3])); // [1, 2, 3]
-	console.log(await promisAll([fn1, fn3])); // [1, 3]
-	console.log(await promisAll([fn1, fnRej])); // "Was rejected"
+	// console.log(promisAll([fn1, fn2, fn3]), (res) => console.log(res)); // [1, 2, 3]
+	// console.log(promisAll([fn1, fn3]), (res) => console.log(res)); // [1, 3]
+	// console.log(promisAll([fn1, fnRej]), (res) => console.log(res)); // "Was rejected"
+
+	promisAll([fn1, fn2, fn3], (res) => console.log(res));
 }
 
 main();
