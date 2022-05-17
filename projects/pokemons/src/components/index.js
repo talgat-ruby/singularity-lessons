@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,18 +7,22 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import style from "./index.module.css";
 
+const hello = () => {
+	console.log('%c hello -> ', 'background: #222; color: royalblue',)
+}
+
 const App = () => {
 	const [pokemons, setPokemons] = useState([]);
 
-	const makePokemonReqeust = async (url) => {
+	const makePokemonReqeust = useCallback(async (url) => {
 		const res = await fetch(url);
 		if (!res.ok) {
 			throw new Error("Smth wrong");
 		}
 		return await res.json();
-	};
+	}, []);
 
-	const makeRequest = async () => {
+	const makeRequest = useCallback(async () => {
 		try {
 			const res = await fetch("https://pokeapi.co/api/v2/pokemon/");
 			if (!res.ok) {
@@ -26,19 +30,24 @@ const App = () => {
 			}
 			const { results: pokemons } = await res.json();
 
-			const pokemon = await makePokemonReqeust(pokemons[0].url);
+			const attrs = await Promise.all(pokemons.map(({url}) => makePokemonReqeust(url)))
 
-			console.log(
-				"%c pokemon -> ",
-				"background: #222; color: royalblue",
-				pokemon
-			);
+			const pokemonsWithImage = pokemons.map((p, i) => ({
+				name: p.name,
+				image: attrs[i]?.sprites?.front_default
+			}))
 
-			// setPokemons(json.results);
+			setPokemons(pokemonsWithImage);
 		} catch (err) {
 			console.error(err);
 		}
-	};
+	}, [makePokemonReqeust]);
+
+	useEffect(() => {
+		hello()
+		console.log('%c Make request -> ', 'background: #222; color: royalblue')
+		makeRequest()
+	}, [makeRequest, hello])
 
 	return (
 		<>
