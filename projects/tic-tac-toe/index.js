@@ -1,6 +1,6 @@
 import Bot1 from "./Bot1.mjs";
 import Bot2 from "./Bot2.mjs";
-import Game from "./Game.mjs";
+import Game from "./gameModule.mjs";
 
 function main() {
 	const game = new Game(Bot1, Bot2);
