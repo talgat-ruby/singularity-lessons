@@ -52,7 +52,8 @@ const App = () => {
   }, []);
 
   const changePageHandler = useCallback(async (_, page) => {
-    //  YOUR CODE
+    const newPokemons = await fetchPokemons((page - 1) * LIMIT);
+    setPokemons(newPokemons);
   }, []);
 
   useEffect(() => {
