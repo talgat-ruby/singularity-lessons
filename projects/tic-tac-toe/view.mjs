@@ -38,17 +38,31 @@ class View {
 		});
 	}
 
-	renderBoardResult(winnerPiece) {
-		switch (winnerPiece) {
-			case PIECES.X:
-				this.resultX.style.display = "block";
-				return;
-			case PIECES.O:
-				this.resultO.style.display = "block";
-				return;
-			default:
-				this.resultDraw.style.display = "block";
+	renderBoardResult(winner) {
+		console.log(winner);
+		if (winner) {
+			const { name, avatar } = winner;
+
+			const winnerAvatar = document.getElementById('winnerAvatar');
+			const winnerName = document.getElementById('winnerName');
+
+			winnerAvatar.setAttribute('url', avatar);
+			winnerName.textContent = name;
+
+		} else {
+			this.resultDraw.style.display = "block";
 		}
+
+		// switch (piece) {
+		// 	case PIECES.X:
+		// 		this.resultX.style.display = "block";
+		// 		return;
+		// 	case PIECES.O:
+		// 		this.resultO.style.display = "block";
+		// 		return;
+		// 	default:
+		// 		this.resultDraw.style.display = "block";
+		// }
 	}
 
 	renderPiece(ind, piece) {

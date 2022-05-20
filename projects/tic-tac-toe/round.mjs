@@ -55,7 +55,7 @@ class Round {
 	}
 
 	#winnerAfterUpdate() {
-		this.view.renderBoardResult(this.winner.piece);
+		this.view.renderBoardResult(this.winner);
 	}
 
 	async #boardAfterUpdate(prop, value) {
