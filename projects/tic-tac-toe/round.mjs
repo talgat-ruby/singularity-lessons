@@ -48,6 +48,8 @@ class Round {
 				writable: true,
 			},
 		});
+
+		this.view.showPlayers(this.player1, this.player2)
 	}
 
 	#currentPlayerAfterUpdate() {

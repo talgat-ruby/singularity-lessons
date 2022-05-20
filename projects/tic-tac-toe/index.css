@@ -52,7 +52,7 @@ path {
 button {
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   padding: 8px 24px;
   border-radius: 4px;
   border: 0;
@@ -163,6 +163,19 @@ input:checked + label svg {
 }
 .result__details {
   margin: 0;
+  text-align: center;
+}
+.result__details img {
+  width: 150px;
+  height: 150px;
+  margin: 12px auto 0;
+  display: block;
+}
+.result__details p {
+  margin-top: 12px;
+  font-size: 22px;
+  color: green;
+  font-weight: bold;
 }
 .result__shield {
   animation: fadeBg 0.25s 0.5s;
@@ -204,6 +217,27 @@ input:checked + label svg {
 }
 .display {
   display: block;
+}
+#players {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-around;
+  padding: 20px;
+}
+#players img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+#players p {
+  font-size: 18px;
+  color: black;
 }
 /*:checked ~ label:nth-of-type(odd),
 :checked ~ :checked ~ :checked ~ label:nth-of-type(odd),

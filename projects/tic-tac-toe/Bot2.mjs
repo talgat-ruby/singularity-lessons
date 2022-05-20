@@ -7,7 +7,7 @@ function getRandomInt(min, max) {
 export default class Bot2 {
     constructor(piece) {
         this.piece = piece;
-        this.name = "Talgat";
+        this.name = "Anna";
         this.avatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj4dDQi4XRxlwNdrrBxYUQoPxB0MasbdQp-w&usqp=CAU";
     }
 

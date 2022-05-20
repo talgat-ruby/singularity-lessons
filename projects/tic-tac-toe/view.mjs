@@ -24,7 +24,7 @@ class View {
 		this.x = [x0, x1, x2, x3, x4, x5, x6, x7, x8];
 		this.o = [o0, o1, o2, o3, o4, o5, o6, o7, o8];
 
-		this.resultX = document.getElementById("result-x");
+		this.result = document.getElementById("result");
 		this.resultO = document.getElementById("result-o");
 		this.resultDraw = document.getElementById("result-draw");
 	}
@@ -39,15 +39,19 @@ class View {
 	}
 
 	renderBoardResult(winner) {
-		console.log(winner);
 		if (winner) {
 			const { name, avatar } = winner;
+
+			this.result.style.display = "block";
 
 			const winnerAvatar = document.getElementById('winnerAvatar');
 			const winnerName = document.getElementById('winnerName');
 
-			winnerAvatar.setAttribute('url', avatar);
+			winnerAvatar.setAttribute('src', avatar);
 			winnerName.textContent = name;
+
+
+			document.getElementById('players').style.display = "none";
 
 		} else {
 			this.resultDraw.style.display = "block";
@@ -83,6 +87,22 @@ class View {
 		checkbox.checked = true;
 
 		return listener;
+	}
+
+	showPlayers(player1, player2) {
+		document.getElementById('players').style.display = "flex";
+
+		const player1Img = document.getElementById('player1Img');
+		const player2Img = document.getElementById('player2Img');
+
+		const player1Name = document.getElementById('player1Name');
+		const player2Name = document.getElementById('player2Name');
+
+		player1Img.setAttribute('src', player1.avatar);
+		player2Img.setAttribute('src', player2.avatar);
+
+		player1Name.textContent = player1.name;
+		player2Name.textContent = player2.name;
 	}
 }
 

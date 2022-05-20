@@ -10,6 +10,16 @@
 
 	<body>
 		<div class="game">
+			<div id="players" style="display: none;">
+				<div id="player1">
+					<img id="player1Img" src="" alt="">
+					<p id="player1Name"></p>
+				</div>
+				<div id="player2">
+					<img id="player2Img" src="" alt="">
+					<p id="player2Name"></p>
+				</div>
+			</div>
 			<form>
 				<div class="board">
 					<svg
@@ -488,7 +498,7 @@
 							></circle>
 						</svg>
 					</label>
-					<div id="result-x" class="board__result board__result--x">
+					<div id="result" class="board__result board__result--x">
 						<dl class="result__content">
 							<dt class="result__title">Winner!</dt>
 							<dd class="result__details">
