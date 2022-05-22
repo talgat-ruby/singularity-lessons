@@ -1,21 +1,19 @@
-import Bot1 from "./Bot1.mjs";
-import Bot2 from "./Bot2.mjs";
-import Game from "./Game.mjs";
+import BotGryffindor from "./bot_gryffindor.mjs";
+import BotHufflepuff from "./bot_hufflepuff.mjs";
+import BotRavenclaw from "./bot_ravenclaw.mjs";
+import BotSlytherin from "./bot_slytherin.mjs";
+import Tournament from "./tournament.mjs";
 
 function main() {
-	const game = new Game(Bot1, Bot2);
-	game.start();
+  const tournament = new Tournament([
+    BotGryffindor,
+    BotHufflepuff,
+    BotRavenclaw,
+    BotSlytherin,
+  ]);
+  tournament.start();
 }
 
-window.addEventListener(
-	"load",
-	function () {
-		const lastBoardLineEl = document.getElementById("last-line");
-		lastBoardLineEl.addEventListener("animationend", main, {
-			once: true,
-		});
-	},
-	{
-		once: true,
-	}
-);
+window.addEventListener("load", main, {
+  once: true,
+});
