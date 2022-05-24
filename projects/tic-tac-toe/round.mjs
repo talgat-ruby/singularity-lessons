@@ -27,7 +27,8 @@ class Round {
       await this.view.renderPiece(ind, this.currentPlayer.piece);
       this.winner = this.#judge(ind, this.currentPlayer.piece);
     } else {
-      throw new Error("Already has a piece!");
+      console.error(new Error("Already has a piece!", ind, this.currentPlayer));
+      this.winner = this.currentPlayer === this.player1 ? this.player2 : this.player1;
     }
   }
 
