@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useFormik } from "formik";
 import { LockClosedIcon } from "@heroicons/react/solid";
 
-export default function Login() {
-  const [email, setEmail] = useState("");
+const validate = (values) => {
+  const errors = {};
+  const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/g;
 
-  const emailHandler = (e) => {
-    const { value } = e.target;
-    console.log("%c value -> ", "background: #222; color: royalblue", value);
-    setEmail(value);
-  };
+  if (!passRegex.test(values.password)) {
+    errors.password =
+      "Password must be 8 char length min, include lower latter, capital letter and number!";
+  }
+
+  return errors;
+};
+
+export default function Login() {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   return (
     <>
@@ -33,7 +48,7 @@ export default function Login() {
               </a>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" onSubmit={formik.handleSubmit}>
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
@@ -48,10 +63,9 @@ export default function Login() {
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
-                  value={email}
-                  onChange={emailHandler}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
                 />
-                <span>Error message</span>
               </div>
               <div>
                 <label htmlFor="password" className="sr-only">
@@ -65,8 +79,12 @@ export default function Login() {
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
                 />
-                <span>Error message</span>
+                {formik.errors.password && (
+                  <span>{formik.errors.password}</span>
+                )}
               </div>
             </div>
 
